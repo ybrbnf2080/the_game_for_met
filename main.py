@@ -164,7 +164,7 @@ class store:
 
             print("\nВы можете купить: ")
             for i in self.pul:
-                print(i.name + "    стоимость: "+ str(i.cost))
+                print(i.name + "    стоимость: "+ str(i.cost* self.coof))
             print("У вас есть:"+str(player.mani)+"    монет")
             inp = input("\n\n введите то что хотите купить: \n")
             p=0
@@ -181,7 +181,6 @@ class store:
                         break
                 p +=1
             
-    
     def sell(self, player):
         while 1:
             player.inventory = sorted(player.inventory, key=lambda x: x.cost, reverse=True)
@@ -197,7 +196,6 @@ class store:
                 if i.item == inp.lower():
                     player.inventory.pop(p)
                     player.mani += int(i.cost)
-                    self.pul.append(i)
                     break
                 p +=1
             
@@ -254,7 +252,7 @@ class battle:
     
     def viewBattle(self, enemy, player):
         print(str(enemy.name)+ "\n жизни врага"+ str(enemy.hp)+ "\n жизни игрока"+ str(player.hp))    
-        inp = input(" 1 - bash\n 2 - mega bash\n 3 - heal self\n 4 - run\n")
+        inp = input(" 1 - bash\n 2 - defens\n 3 - heal self\n 4 - run\n")
         return inp
 
     def inputPlayer(self, enemy, player):
@@ -372,8 +370,7 @@ if __name__ == "__main__":
                     dang = Mine("3")    
 
             if helpe == "store":
-                if s == None:
-                    s = store()
+                s = store()
                 checkStore = input("1 - купить \n2-продать")
                 if checkStore == "1":
                     s.bay(player)
