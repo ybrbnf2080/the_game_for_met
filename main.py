@@ -164,7 +164,7 @@ class store:
 
             print("\nВы можете купить: ")
             for i in self.pul:
-                print(i.name + "    стоимость: "+ str(i.cost* self.coof))
+                print(i.name + "    стоимость: "+ str(int(i.cost* self.coof)))
             print("У вас есть:"+str(player.mani)+"    монет")
             inp = input("\n\n введите то что хотите купить: \n")
             p=0
